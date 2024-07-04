@@ -9,6 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.rohit.jetpackapplication.databinding.FragmentSecondBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,7 +44,6 @@ class SecondFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -75,25 +79,25 @@ class SecondFragment : Fragment() {
                 binding?.fourBtn?.requestFocus()
             }
         }
-        binding?.Check?.setOnClickListener{
-            val data_firstbtn  = binding?.firstBtn?.text.toString()
+        binding?.Check?.setOnClickListener {
+            val data_firstbtn = binding?.firstBtn?.text.toString()
             val data_secondbtn = binding?.secondBtn?.text.toString()
             val data_thirdbtn = binding?.thirdBtn?.text.toString()
             val data_fourbtn = binding?.fourBtn?.text.toString()
             val total = data_firstbtn + data_secondbtn + data_thirdbtn + data_fourbtn
-            if (get_otp == total){
+            if (get_otp == total) {
                 Log.d(TAG, "true")
                 var customDialog = Dialog(requireContext()).apply {
                     setContentView(R.layout.customdialogfragment1)
-                    window?.setLayout(900,700)
+                    window?.setLayout(900, 700)
                 }.show()
                 Toast.makeText(requireContext(), "OTP is matched", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 Dialog(requireContext()).apply {
                     setContentView(R.layout.customdialogfragment2)
-                    window?.setLayout(900,700)
+                    window?.setLayout(900, 700)
                 }.show()
-                Log.d(TAG ,total)
+                Log.d(TAG, total)
             }
         }
     }

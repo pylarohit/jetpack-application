@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.rohit.jetpackapplication.databinding.FragmentFirstBinding
+import com.rohit.jetpackapplication.databinding.FragmentSecondBinding
 import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,12 +35,13 @@ class FirstFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-    }
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
